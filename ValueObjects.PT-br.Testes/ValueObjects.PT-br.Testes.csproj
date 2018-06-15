@@ -71,6 +71,7 @@
     <Compile Include="Pessoa\CPFTestes.cs" />
     <Compile Include="Pessoa\NomeTestes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Telefone\TelefoneFixoTestes.cs" />
     <Compile Include="TesteBase.cs" />
   </ItemGroup>
   <ItemGroup>

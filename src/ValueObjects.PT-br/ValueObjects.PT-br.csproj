@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Telefone\Celular.cs" />
+    <Compile Include="Telefone\TelefoneFixo.cs" />
     <Compile Include="ValueObjectBase.cs" />
     <Compile Include="Outros\UF.cs" />
     <Compile Include="Pessoa\CPF.cs" />
