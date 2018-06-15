@@ -31,7 +31,7 @@ namespace ValueObjects.PT_br.Telefone
 
         }
 
-        private void ValidarNumero()
+        protected virtual void ValidarNumero()
         {
             RuleFor(e => e.Numero)
                 .MinimumLength(8).WithMessage("O número do telefone deve ter 08 caracteres")
