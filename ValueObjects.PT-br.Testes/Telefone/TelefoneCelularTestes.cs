@@ -20,7 +20,7 @@ namespace ValueObjects.PT_br.Testes.Telefone
             var telefoneCelular = new TelefoneCelular("61", numero);
 
             // Act
-            var msg = telefoneCelular.EstaValido();
+            telefoneCelular.EstaValido();
 
             // Assert
             AssertMensagemExperada(mensagemEsperada, telefoneCelular);

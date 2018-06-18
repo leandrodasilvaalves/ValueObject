@@ -67,6 +67,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Outros\EnderecoTestes.cs" />
     <Compile Include="Outros\UFTestes.cs" />
     <Compile Include="Pessoa\CPFTestes.cs" />
     <Compile Include="Pessoa\NomeTestes.cs" />

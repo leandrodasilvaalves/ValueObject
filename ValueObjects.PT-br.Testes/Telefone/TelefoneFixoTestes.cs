@@ -18,7 +18,7 @@ namespace ValueObjects.PT_br.Testes.Telefone
             var telefoneFixo = new TelefoneFixo(ddd, "33334444");
 
             // Act
-            var msg = telefoneFixo.EstaValido();
+            telefoneFixo.EstaValido();
 
             // Assert
             AssertMensagemExperada(mensagemEsperada, telefoneFixo);
