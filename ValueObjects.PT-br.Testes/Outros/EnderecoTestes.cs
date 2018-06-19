@@ -45,6 +45,46 @@ namespace ValueObjects.PT_br.Testes.Outros
         }
 
         [Theory]
+        [InlineData("PED3","")]
+        [InlineData("PE", "")]
+        [InlineData("P", "O campo bairro deve ter pelo menos 02 caracteres")]
+        [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "O campo bairro deve ter no máximo 40 caracteres")]
+        [InlineData("", "O campo bairro não pode ser vazio")]
+        [InlineData(null, "O campo bairro não pode ser nulo")]
+        public void Bairro(string bairro, string mensagemEsperada)
+        {
+            // Arrange
+            var endereco = PrepararEndereco();
+            endereco.SetBairro(bairro);
+
+            // Act
+            endereco.EstaValido();
+
+            // Assert
+            AssertMensagemExperada(mensagemEsperada, endereco);
+        }
+
+        [Theory]
+        [InlineData("Luziânia", "")]
+        [InlineData("Lu", "")]
+        [InlineData("L", "A cidade deve ter pelo menos 02 caracteres")]
+        [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "A cidade deve ter no máximo 40 caracteres")]
+        [InlineData("", "A cidade não pode ser vazia")]
+        [InlineData(null, "A cidade não pode ser nula")]
+        public void Cidade(string cidade, string mensagemEsperada)
+        {
+            // Arrange
+            var endereco = PrepararEndereco();
+            endereco.SetCidade(cidade);
+
+            // Act
+            endereco.EstaValido();
+
+            // Assert
+            AssertMensagemExperada(mensagemEsperada, endereco);
+        }
+
+        [Theory]
         [InlineData("DF", "Distrito Federal", "")]
         [InlineData("DFA", "Distrito Federal", "A UF informada é inválida")]
         [InlineData("DF", "DistritoFederal", "A UF informada é inválida")]        
@@ -67,8 +107,7 @@ namespace ValueObjects.PT_br.Testes.Outros
             // Assert
             AssertMensagemExperada(mensagemEsperada, endereco);
         }
-
-
+        
 
         #region Metodos Privados
 
