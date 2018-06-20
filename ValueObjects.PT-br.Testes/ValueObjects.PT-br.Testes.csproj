@@ -76,6 +76,7 @@
     <Compile Include="Telefone\TelefoneFixoTestes.cs" />
     <Compile Include="TesteBase.cs" />
     <Compile Include="Web\EmailTestes.cs" />
+    <Compile Include="Web\SiteTestes.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

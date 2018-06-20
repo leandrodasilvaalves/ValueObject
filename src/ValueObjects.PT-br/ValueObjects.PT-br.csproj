@@ -59,6 +59,7 @@
     <Compile Include="Pessoa\Nome.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\Email.cs" />
+    <Compile Include="Web\Site.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
