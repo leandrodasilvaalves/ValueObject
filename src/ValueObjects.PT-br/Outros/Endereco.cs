@@ -32,6 +32,8 @@ namespace ValueObjects.PT_br.Outros
 
         public void SetBairro(string bairro) => this.Bairro = bairro;
 
+        public void SetNumero(string numero) => this.Numero = numero;
+
         public void SetCidade(string cidade) => this.Cidade = cidade;
 
         public void SetUF(UF uf) => this.UF = uf;
@@ -44,6 +46,7 @@ namespace ValueObjects.PT_br.Outros
         {
             ValidarLogradouro();
             ValidarComplemento();
+            ValidarNumero();
             ValidarBairro();
             ValidarCidade();
             ValidarUF();
@@ -67,13 +70,20 @@ namespace ValueObjects.PT_br.Outros
                 .When(e => !string.IsNullOrEmpty(e.Complemento));
         }
 
+        private void ValidarNumero()
+        {
+            RuleFor(e => e.Numero)
+                .MaximumLength(5).WithMessage("O número quando informado deve ter no máximo 5 caracteres")
+                .When(e => !string.IsNullOrEmpty(e.Numero));
+        }
+
         private void ValidarBairro()
         {
             RuleFor(e => e.Bairro)
-                .NotNull().WithMessage("O campo bairro não pode ser nulo")
-                .NotEmpty().WithMessage("O campo bairro não pode ser vazio")
-                .MinimumLength(2).WithMessage("O campo bairro deve ter pelo menos 02 caracteres")
-                .MaximumLength(40).WithMessage("O campo bairro deve ter no máximo 40 caracteres");
+                .NotNull().WithMessage("O bairro não pode ser nulo")
+                .NotEmpty().WithMessage("O bairro não pode ser vazio")
+                .MinimumLength(2).WithMessage("O bairro deve ter pelo menos 02 caracteres")
+                .MaximumLength(40).WithMessage("O bairro deve ter no máximo 40 caracteres");
         }
 
         private void ValidarCidade()

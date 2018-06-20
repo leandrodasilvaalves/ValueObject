@@ -45,12 +45,32 @@ namespace ValueObjects.PT_br.Testes.Outros
         }
 
         [Theory]
+        [InlineData("","")]
+        [InlineData(null, "")]
+        [InlineData("1", "")]
+        [InlineData("12345", "")]
+        [InlineData("123456", "O número quando informado deve ter no máximo 5 caracteres")]
+        [InlineData("123456789", "O número quando informado deve ter no máximo 5 caracteres")]
+        public void Numero(string numero, string mensagemEsperada)
+        {
+            // Arrange
+            var endereco = PrepararEndereco();
+            endereco.SetNumero(numero);
+
+            // Act
+            endereco.EstaValido();
+
+            // Assert
+            AssertMensagemExperada(mensagemEsperada, endereco);
+        }
+
+        [Theory]
         [InlineData("PED3","")]
         [InlineData("PE", "")]
-        [InlineData("P", "O campo bairro deve ter pelo menos 02 caracteres")]
-        [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "O campo bairro deve ter no máximo 40 caracteres")]
-        [InlineData("", "O campo bairro não pode ser vazio")]
-        [InlineData(null, "O campo bairro não pode ser nulo")]
+        [InlineData("P", "O bairro deve ter pelo menos 02 caracteres")]
+        [InlineData("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "O bairro deve ter no máximo 40 caracteres")]
+        [InlineData("", "O bairro não pode ser vazio")]
+        [InlineData(null, "O bairro não pode ser nulo")]
         public void Bairro(string bairro, string mensagemEsperada)
         {
             // Arrange
