@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Empresa\CNPJ.cs" />
     <Compile Include="Outros\Endereco.cs" />
     <Compile Include="Pessoa\RG.cs" />
     <Compile Include="Telefone\TelefoneCelular.cs" />

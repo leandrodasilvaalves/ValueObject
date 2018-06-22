@@ -31,10 +31,10 @@ namespace ValueObjects.PT_br.Pessoa
         {
             RuleFor(e => e.Numero)
                 .NotNull().WithMessage("O número do CPF não pode ser nulo")
-                .Must(ValidarCPF).WithMessage("O número do CPF é inváldio");
+                .Must(ValidarNumero).WithMessage("O número do CPF é inváldio");
         }
 
-        private bool ValidarCPF(string numeroCPF)
+        public static bool ValidarNumero(string numeroCPF)
         {
             int[] multiplicador1 = new int[9] { 10, 9, 8, 7, 6, 5, 4, 3, 2 };
             int[] multiplicador2 = new int[10] { 11, 10, 9, 8, 7, 6, 5, 4, 3, 2 };
@@ -71,7 +71,7 @@ namespace ValueObjects.PT_br.Pessoa
             else
                 resto = 11 - resto;
             digito = digito + resto.ToString();
-            return Numero.EndsWith(digito);
+            return numeroCPF.EndsWith(digito);
         }
     }
 }
