@@ -15,10 +15,9 @@ namespace ValueObjects.PT_br.Pessoa
 
         public string SobreNome { get; private set; }
 
-        public string NomeCompleto
-        {
-            get { return String.Concat(PrimeiroNome, " ", SobreNome); }
-        }
+        public string NomeCompleto =>        
+            String.Concat(PrimeiroNome, " ", SobreNome); 
+        
 
         protected override void Validar()
         {

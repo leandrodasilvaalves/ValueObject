@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Outros\Endereco.cs" />
+    <Compile Include="Pessoa\RG.cs" />
     <Compile Include="Telefone\TelefoneCelular.cs" />
     <Compile Include="Telefone\TelefoneFixo.cs" />
     <Compile Include="ValueObjectBase.cs" />

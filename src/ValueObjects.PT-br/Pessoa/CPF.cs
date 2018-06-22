@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using System.Text.RegularExpressions;
 using ValueObjects.PT_br.Outros;
 
 namespace ValueObjects.PT_br.Pessoa
@@ -46,7 +47,7 @@ namespace ValueObjects.PT_br.Pessoa
 
             numeroCPF = numeroCPF.Trim();
 
-            numeroCPF = numeroCPF.Replace(".", "").Replace("-", "");
+            numeroCPF = Regex.Replace(numeroCPF, @"[^\d]", "");
             if (numeroCPF.Length != 11)
                 return false;
             tempNumeroCPF = numeroCPF.Substring(0, 9);
